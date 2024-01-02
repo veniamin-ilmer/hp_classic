@@ -2,6 +2,6 @@
 
 Model | Year | Purpose
 ---|---|--
-[hp35](/hp35) | 1972 | Scientific
-[hp80](/hp80) | 1973 | Business
-[hp45](/hp45) | 1973 | Scientific
+[hp35](http://veniamin-ilmer.github.io/hp35) | 1972 | Scientific
+[hp80](http://veniamin-ilmer.github.io/hp80) | 1973 | Business
+[hp45](http://veniamin-ilmer.github.io/hp45) | 1973 | Scientific
