@@ -1,7 +1,7 @@
-# HP Classic GUIs
+# HP Classic Calculators
 
-Model | Year | Notes
+Model | Year | Purpose
 ---|---|--
-[hp35] | 1972 | World's First Pocket Scientific Calculator
-[hp80] | 1972 | World's First Pocket Business Calculator 
-[hp45] | 1972 | World's First Scientific Calculator with a Shift Key
+[hp35](hp35) | 1972 | Scientific
+[hp80](hp80) | 1973 | Business
+[hp45](hp45) | 1973 | Scientific
