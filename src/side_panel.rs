@@ -2,6 +2,8 @@ use boards::hp_classic;
 use chips::cpu::{hp_anr, hp_cnt};
 use chips::ram::hp_ram;
 use chips::shifter;
+use chips::Indexer16;
+
 
 pub struct SidePanel<const EXTRA_REGS: usize> {
   cnt: Option<web_sys::HtmlCollection>,
@@ -10,7 +12,7 @@ pub struct SidePanel<const EXTRA_REGS: usize> {
   status: Option<web_sys::HtmlCollection>,
   current_anr: [hp_anr::Register; 7],
   current_data: [hp_anr::Register; 10],
-  current_status: [bool; 12],
+  current_status: Indexer16,
 }
 
 impl<const EXTRA_REGS: usize> SidePanel<EXTRA_REGS> {
@@ -81,7 +83,7 @@ impl<const EXTRA_REGS: usize> SidePanel<EXTRA_REGS> {
         let td_list = status.item(1).expect("can't get tr").children();
         for i in 0..12 {
           if let Some(td) = td_list.item(i as u32 + 1) {
-            if cnt.status[i] {
+            if cnt.status.read_bit(i) {
               td.set_text_content(Some("●"));
             } else {
               td.set_text_content(Some("○"));

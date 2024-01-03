@@ -25,13 +25,13 @@ impl Keyboard {
       let code = click_float.round(); //Wish there were a way to get an integer directly without needing to go through a float...
       
       if code == -1.0 { //Depress event
-        cnt.status[0] = false;
+        cnt.status.write_bit(0, false);
         cnt.current_keypress = None;
       } else if code == 255.0 { //Hack around javascript not able to handle 0.
-        cnt.status[0] = true;  //The only status flag connected to hardware. (Set with key press).
+        cnt.status.write_bit(0, true);  //The only status flag connected to hardware. (Set with key press).
         cnt.current_keypress = Some(u6::new(0));
       } else {
-        cnt.status[0] = true;  //The only status flag connected to hardware. (Set with key press).
+        cnt.status.write_bit(0, true);  //The only status flag connected to hardware. (Set with key press).
         cnt.current_keypress = Some(u6::new(code as u8));
       }
     }
