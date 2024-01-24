@@ -2,7 +2,7 @@
 
 #![forbid(unsafe_code)]
 
-use boards::hp_classic::Board;
+use chips::hp_classic::Board;
 
 mod display;
 mod keyboard;

@@ -10,7 +10,6 @@ edition = "2021"
 
 [dependencies]
 wasm-bindgen = "*"
-boards = { path = "../boards" }
 chips = { path = "../chips" }
 log = "*"
 arbitrary-int = "*"

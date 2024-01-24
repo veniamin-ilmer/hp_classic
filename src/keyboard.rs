@@ -1,6 +1,6 @@
 use arbitrary_int::u6;
 use wasm_bindgen::{JsValue, JsCast};
-use chips::cpu::hp_cnt::HP_CnT;
+use chips::hp_classic::cnt;
 
 pub(super) struct Keyboard {
   pending_button_var: wasm_bindgen::JsValue,
@@ -18,7 +18,7 @@ impl Keyboard {
     }
   }
   
-  pub(super) fn run_refresh_cycle(&self, cnt: &mut HP_CnT) {
+  pub(super) fn run_refresh_cycle(&self, cnt: &mut cnt::CnT) {
     let pending_click_func: &js_sys::Function = self.pending_button_var.dyn_ref().unwrap();
     let click_var = pending_click_func.apply(&JsValue::null(), &js_sys::Array::new()).unwrap();
     if let Some(click_float) = click_var.as_f64() {

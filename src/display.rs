@@ -1,4 +1,4 @@
-use chips::cpu::hp_anr::HP_AnR;
+use chips::hp_classic::anr::AnR;
 use chips::shifter;
 
 pub(super) struct Display {
@@ -22,7 +22,7 @@ impl Display {
     }
   }
   
-  pub fn run_cycle(&mut self, anr: &HP_AnR) {
+  pub fn run_cycle(&mut self, anr: &AnR) {
     //We need one cycle to really turn off the display, so we have this delay.
     if self.display_on != anr.display_on {
       self.display_counter += 1;
@@ -35,7 +35,7 @@ impl Display {
     }
   }
 
-  pub fn run_refresh_cycle(&mut self, anr: &HP_AnR) {
+  pub fn run_refresh_cycle(&mut self, anr: &AnR) {
     let mut buffer = Vec::with_capacity(15);
     let new_str = if self.display_on {
       let mut a = anr.a.clone();
